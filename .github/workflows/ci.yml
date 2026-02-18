@@ -3,8 +3,26 @@ name: CI
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - '**.h'
+      - '**.c'
+      - '**.cc'
+      - '**.hpp'
+      - '**.cpp'
+      - '**.cxx'
+      - '**/CMakeLists.txt'
+      - '**.cmake'
   pull_request:
     branches: [ "main" ]
+    paths:
+      - '**.h'
+      - '**.c'
+      - '**.cc'
+      - '**.hpp'
+      - '**.cpp'
+      - '**.cxx'
+      - '**/CMakeLists.txt'
+      - '**.cmake'
 
 jobs:
   build:
@@ -31,13 +49,11 @@ jobs:
       run: |
         git clone --depth 1 https://github.com/ArthurSonzogni/FTXUI.git
         cd FTXUI
-        # Install to local './ftxui-dist' inside the workspace
         cmake -B build -DCMAKE_INSTALL_PREFIX=${{ github.workspace }}/ftxui-dist -DFTXUI_BUILD_EXAMPLES=OFF -DFTXUI_BUILD_DOCS=OFF
         cmake --build build --target install
 
     - name: Configure with Preset
       run: |
-        # We add -DCMAKE_PREFIX_PATH so find_package(ftxui) looks in our cached folder
         cmake --preset linux-release -DCMAKE_PREFIX_PATH=${{ github.workspace }}/ftxui-dist
 
     - name: Build with Preset

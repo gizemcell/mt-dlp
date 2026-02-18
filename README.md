@@ -12,7 +12,7 @@ Built with C++20, it orchestrates multiple worker threads to download distinct f
   * **Resiliency**: Features intelligent error handling that detects server throttling (HTTP 429/503), automatically strictly reducing concurrency and applying backoff strategies to salvage downloads.
   * **System Integration**: Directly interfaces with `libcurl` for robust protocol handling while managing raw system resources via RAII and manual memory safeguards.
 
-## Buiding
+## Building
 
 ### Prerequisites
 
