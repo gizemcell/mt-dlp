@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install System Dependencies
+        run: |
+          sudo apt update
+          sudo apt install build-essential cmake ninja-build gcc g++ libcurl4-openssl-dev -y
+
+      - name: Build and Install FTXUI
+        run: |
+          git clone https://github.com/ArthurSonzogni/FTXUI.git
+          cd FTXUI
+          cmake -B build -DCMAKE_INSTALL_PREFIX=/usr/local -DFTXUI_BUILD_EXAMPLES=OFF -DFTXUI_BUILD_DOCS=OFF
+          sudo cmake --build build --target install
+
+      - name: Configure with Preset
+        run: cmake --preset linux-release
+
+      - name: Build with Preset
+        run: cmake --build --preset linux-release
