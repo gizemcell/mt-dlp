@@ -1,1 +1,4 @@
-.github/workflows/ @omega493
+.github @omega493
+CODEOWNERS @omega493
+
+/include/selena/ @omega493
