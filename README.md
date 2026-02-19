@@ -77,6 +77,17 @@ Built with C++20, it orchestrates multiple worker threads to download distinct f
     * **Linux:**
     The project defines a `install.sh` at the root directory. It is recommended to run it (`sh install.sh`) to install the program on your system.
 
+## Usage
+
+Whether you are on Windows or Linux, the usage remains the same:
+```bash
+mt-dlp <url>
+```
+
+As is evident, replace `<url>` with an actual URL. Please note that only HTTP / HTTPs URLs are accepted.
+
+When provided with the URL, the tool will automatically perform a HEAD request to the source server and request it for the file's size and whether it accepts ranges. Should the answer to both questions be true, the downloader automatically spawns 8 (or less threads) depending on your maximum hardware concurrency - facilitating the "multi-threaded" part of this tool. On slower sites, this provides a boost of upto 8-10 times, directly verifying that 8 threads are being created.
+
 ## Contributing
 
 Please head over to `CONTRIBUTING.md` for steps on how to contribute to this project.

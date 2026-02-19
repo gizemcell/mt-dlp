@@ -24,6 +24,9 @@ on:
       - '**/CMakeLists.txt'
       - '**.cmake'
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
