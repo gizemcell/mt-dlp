@@ -126,6 +126,12 @@ if ! cmake --build --preset "$target_preset"; then
 fi
 
 log "$green" "Build complete!"
+
+if [ "$debug_mode" = false ]; then
+  log "$cyan" "Stripping executable..."
+  strip build/linux/linux-release/mt-dlp
+fi
+
 log "$cyan" "Installing..."
 
 BUILD_DIR="build/linux/${target_preset}"
