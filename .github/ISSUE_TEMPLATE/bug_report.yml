@@ -31,9 +31,9 @@ body:
       label: Steps to reproduce
       description: Add exact steps.
       placeholder: |
-        If the bug report is a file downloading error (being unable to download from some link), fill this with "Not Applicable or N/A". If however, this          is a problem in the downloader itself (such as threads not being created), fill this in.
-      validations:
-        required: true
+        If the bug report is a file downloading error (being unable to download from some link), fill this with "Not Applicable or N/A". If however, this is a problem in the downloader itself (such as threads not being created), fill this in.
+    validations:
+      required: true
   - type: textarea
     id: expected
     attributes:
