@@ -1,29 +1,64 @@
----
 name: Bug report
 about: Create a report to help us improve
-title: "[BUG]"
-labels: ''
-assignees: ''
-
----
-
-**Describe the bug**
-A clear and concise description of what the bug is.
-
-**To Reproduce**
-Please describe in as much details as possible the steps to reproduce the behavior.
-
-**Expected behavior**
-A clear and concise description of what you expected to happen.
-
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
-**Your System Configuration**
-Please enter your system configurations:
-- OS: [ex. Windows, Fedora]
-- Architecture: [ex. x64]
-- System RAM: [ex. 32 GB]
-
-**Additional context**
-Add any other context about the problem here.
+title: "[BUG]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please provide clear steps so we can reproduce it quickly.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and didn't find a duplicate.
+          required: true
+        - label: I can reproduce this on the latest code from `main`.
+          required: false
+  - type: textarea
+    id: summary
+    attributes:
+      label: Bug summary
+      description: What happened?
+      placeholder: "Example: While trying `mt-dlp` on..."
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Add exact steps.
+      placeholder: |
+        If the bug report is a file downloading error (being unable to download from some link), fill this with "Not Applicable or N/A". If however, this          is a problem in the downloader itself (such as threads not being created), fill this in.
+      validations:
+        required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: "Threads must be created because..."
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: "Downloader works in..."
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS details, CPU architecture
+      placeholder: "Fedora Linux, x64"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Extra context
+      description: Screenshots, console errors, or videos.
+      render: shell
