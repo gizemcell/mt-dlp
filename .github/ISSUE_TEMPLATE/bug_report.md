@@ -1,0 +1,29 @@
+---
+name: Bug report
+about: Create a report to help us improve
+title: "[BUG]"
+labels: ''
+assignees: ''
+
+---
+
+**Describe the bug**
+A clear and concise description of what the bug is.
+
+**To Reproduce**
+Please describe in as much details as possible the steps to reproduce the behavior.
+
+**Expected behavior**
+A clear and concise description of what you expected to happen.
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Your System Configuration**
+Please enter your system configurations:
+- OS: [ex. Windows, Fedora]
+- Architecture: [ex. x64]
+- System RAM: [ex. 32 GB]
+
+**Additional context**
+Add any other context about the problem here.
